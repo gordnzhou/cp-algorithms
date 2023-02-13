@@ -56,7 +56,7 @@ void pointUpdate(int idx, int l, int r, int tar, int val) {
     st[idx] = st[2 * idx] + st[2 * idx + 1]; 
 }
 
-// can be slow! may requre lazy propagation for O(log[n]) run time
+// not optimal! may requre lazy propagation for O(log[n]) run time
 void rangeUpdate(int idx, int l, int r, int ql, int qr, int val) {
     // update range is complete outside our range
     if (l > qr || r < ql) return;
