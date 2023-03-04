@@ -27,7 +27,8 @@ int main() {
 	mp.erase(1) // erases key: 1 from mp, reducing size by 1
 
 	// returns iterator ponting to element with key = x (or to mp.end() if not found)
-	mp.find(x)
+	mp.find(x);
+	cout << mp.begin()->first << "\n";
 
 	// STL SET
 	set<int> s;

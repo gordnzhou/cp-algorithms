@@ -21,12 +21,42 @@ void sieve(int n) {
     }
 }
 
+//check if n is a perfect square in O(log n)
+bool is_ps(ll n) {
+    ll sr = sqrt(n);
+    return sr * sr == n;
+}
+
 int main() {
     int n;
     cin >> n;
+    
 	sieve(n);
 	for (auto p : primes) {
 		cout << p << " ";
 	}
 	cout << "\n";
+
+    // finds all divisors of n in O(sqrt(n))
+    // works because a divisor of n cannot exist in the interval (sqrt(n), n)
+    for (int i = 1; i * i <= n; ++i) {
+        if (n % i != 0) continue;
+        cout << i << " ";
+    }
+
+    // prime factorization of 'n'
+    vector<int> pf;
+    int x = n;
+    for (int i = 2; i * i <= n; i++) {
+        while (x % i == 0) {
+            pf.push_back(i);
+            x /= i;
+        }
+    }
+    if (x > 1) pf.push_back(x);
+
+    for (auto &f : pf) {
+        cout << f << " ";
+    }
+    cout << "\n";
 }
